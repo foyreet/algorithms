@@ -1,14 +1,8 @@
+#include "merge_sort.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
-void cin_vector(int &n, vector<int> &a) {
-    cin >> n;
-    a.resize(n); // заранее резервируем память для вектора
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-}
 // Сортировка слиянием O(nlogn)
 
 // Функция для слияния двух отсортированных массивов
@@ -44,15 +38,6 @@ vector<int> merge_sort(const vector<int> &a) {
 
     return merge(left, right);
 }
-void merge_sorting() {
-    int n;
-    vector<int> a;
-    cin_vector(n, a);
-    vector<int> sorted_a = merge_sort(a);
-    for(int num : sorted_a) {
-        cout << num << " ";
-    }
-}
-int main() {
-    merge_sorting();
-}
+
+
+
