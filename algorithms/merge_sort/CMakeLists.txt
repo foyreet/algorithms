@@ -1,6 +1,8 @@
 # CMakeLists.txt в директории algorithms/merge_sort
 add_library(merge_sort_lib STATIC
         merge_sort.cpp
+        count_inversions.cpp
+        count_inversions.h
 )
 
 # Указание публичных заголовочных файлов
