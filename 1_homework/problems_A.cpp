@@ -11,7 +11,7 @@ void cin_vector(int &n, vector<int> &a) {
     }
 }
 // Сортировка вставкой O(n^2)
-void sorting_by_inserts() {
+void sorting() {
     int n;
     vector<int> a;
     cin_vector(n, a);
@@ -28,5 +28,5 @@ void sorting_by_inserts() {
 }
 
 int main() {
-    sorting_by_inserts();
+    sorting();
 }
