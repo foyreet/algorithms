@@ -1,2 +1,3 @@
 add_subdirectory(merge_sort)
 add_subdirectory(sorting_by_inserts)
+add_subdirectory(quick_sort)
