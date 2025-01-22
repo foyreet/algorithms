@@ -1,17 +1,17 @@
 # CMakeLists.txt в директории algorithms/merge_sort
-add_library(merge_sort_lib STATIC
-        merge_sort.cpp
+add_library(sorting_by_inserts_lib STATIC
+        sorting_by_inserts.cpp
 )
 
 # Указание публичных заголовочных файлов
-target_include_directories(merge_sort_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(sorting_by_inserts_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Экспортируем библиотеку (если нужно)
-install(TARGETS merge_sort_lib EXPORT merge_sort_lib_export
+install(TARGETS sorting_by_inserts_lib EXPORT sorting_by_inserts_lib_export
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
-        DESTINATION include/algorithms/merge_sort
+        DESTINATION include/algorithms/sorting_by_inserts
         FILES_MATCHING PATTERN "*.h")
