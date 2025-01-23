@@ -1,3 +1,4 @@
-add_subdirectory(merge_sort)
-add_subdirectory(sorting_by_inserts)
-add_subdirectory(quick_sort)
+add_subdirectory(1_lection/merge_sort)
+add_subdirectory(1_lection/sorting_by_inserts)
+add_subdirectory(1_lection/quick_sort)
+add_subdirectory(2_lection/algorithm_Hoara_K)
