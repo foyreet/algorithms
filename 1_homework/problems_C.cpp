@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "count_inversions.h"
+#include "../algorithms/1_lection/count_inversions/count_inversions.h"
 using namespace std;
 int main() {
     int n;
