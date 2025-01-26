@@ -5,7 +5,7 @@
 #include <chrono>
 using namespace std;
 
-int split(vector<int>& a, int l, int r, int x) {
+int split(vector<long long>& a, int l, int r, long long x) {
     int support_element = l;
     for (int i = l; i < r; i++) {
         if (a[i] == x) {
@@ -25,9 +25,9 @@ int split(vector<int>& a, int l, int r, int x) {
     return m;
 }
 
-int find(std::vector<int> &a, int k, int l, int r) {
-    if (r - l == 1) {
-        return a[k];
+long long find(vector<long long> &a, int k, int l, int r) {
+    if (l == r - 1) {
+        return a[l];
     }
     // Инициализация генератора случайных чисел с использованием времени
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -40,37 +40,37 @@ int find(std::vector<int> &a, int k, int l, int r) {
     int random_index = dist(gen);
 
     // Получение случайного элемента
-    int x = a[random_index];
+    long long x = a[random_index];
 
     int m = split(a, l, r, x);
 
-    if (k < m) {
+    int left_count = m - l;
+    if (k < left_count) {
         return find(a, k, l, m);
-    }
-    else {
-        return find(a, k, m, r);
+    } else if (k > left_count) {
+        return find(a, k - left_count - 1, m + 1, r);
+    } else {
+        return a[m];
     }
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> a;
+    cin >> n;
+    vector<long long> a;
     for (int i = 0; i < n; i++) {
-        int el;
-        std::cin >> el;
+        long long el;
+        cin >> el;
         a.push_back(el);
     }
     int m;
-    std::cin >> m;
+    cin >> m;
     while(m--) {
         int i, j, k;
-        i--;
-        j--;
-        k--;
-        std::cin >> i >> j >> k;
-        int result = find(a, k, i, j);
-        std::cout << result << std::endl;
+        cin >> i >> j >> k;
+        i--; j--;
+        int result = find(a, k - 1, i, j + 1);
+        cout << result << endl;
     }
 }
 
