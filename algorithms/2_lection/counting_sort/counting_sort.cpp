@@ -3,10 +3,10 @@
 #include <limits>
 
 // void create_vector - функция для создания и заполнения вектора
-void create_vector(std::vector<int>& arr, int n);
+void create_vector(std::vector<int>& arr, int& n);
 
 // std::vector<int> cout_vector - функция для вывода вектора
-void cout_vector(std::vector<int>& cnt, int m);
+void cout_vector(std::vector<int>& cnt);
 
 // int max_element - функция для нахождения максимального элемента в векторе
 int max_element(std::vector<int>& arr, int n);
@@ -20,16 +20,17 @@ void create_cnt(std::vector<int>& arr, int n, std::vector<int>& cnt, int min_val
 
 int main() {
     std::vector<int> arr;
-    int n;
+    int n = 0;
     create_vector(arr, n);
     int max_arr = max_element(arr, n);
     int min_arr = min_element(arr, n);
     int size_cnt = max_arr - min_arr + 1;
     std::vector<int> cnt(size_cnt, 0);
     create_cnt(arr, n, cnt, min_arr);
+    cout_vector(cnt);
 }
 
-void create_vector(std::vector<int>& arr, int n) {
+void create_vector(std::vector<int>& arr, int& n) {
     std::cin >> n;
     for (int i = 0; i < n; i++) {
         int value;
@@ -38,8 +39,8 @@ void create_vector(std::vector<int>& arr, int n) {
     }
 }
 
-void cout_vector(std::vector<int>& cnt, int m) {
-    for (int i = 0; i < m; i++) {
+void cout_vector(std::vector<int>& cnt) {
+    for (size_t i = 0; i < cnt.size(); i++) {
         std::cout << cnt[i] << " ";
     }
 }
